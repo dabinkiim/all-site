@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>계단</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    <style type="text/css">
+    body {margin: 0; padding: 0; width: 100%; height: 100%;
+    position: relative; text-align: center; font-size: 2rem;  color: black; font-family: 'Shippori Mincho', serif;
+    -ms-overflow-style: none; }
+
+    ::-webkit-scrollbar { display: none;}
+
+    div {
+    position: inherit; height:10vh;
+    margin: 0; padding: 0;
+    font-size: 1.2rem; color: white; text-align: justify;
+    left: 50%; transform: translateX(-50%);
+    overflow: hidden;}
+
+    div:after {
+      content: "";
+      display: inline-block;
+      width: 80%;
+    }
+
+    #candle {width: 2.5%; height:10vh; color: white; font-size: 1.4rem; text-align: center;
+    background: linear-gradient(90deg, black 50%, gray 0);
+    background-size: 10px 100%;}
+    button {font-family: 'Shippori Mincho', serif;}
+
+
+    </style>
+
+  </head>
+
+  <body>
+    Birthday Cake <br> Just For You <br>
+    <button onClick="window.location.reload()">make a wish</button><br><br>
+
+    <div id="candle">●</div>
+
+    <script type="text/javascript">
+
+    var colorNames = [];
+    var widthnum = [];
+    var icing =[];
+    for(var i=0; i<20; i++)
+    {
+      var r = parseInt(Math.random() * 256);
+      var g = parseInt(Math.random() * 256);
+      var b = parseInt(Math.random() * 256);
+      colorNames[i] = 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+		for(var i=0; i<20; i++)
+    {
+      var num = (i+1)*5;
+      widthnum[i] = num+'%';
+      icing[i] = ' ● '.repeat(i+2);
+       document.write("<div style='background-color:"+colorNames[i]+"; width:"+widthnum[i]+"'>"+icing[i]+"</div>");
+    };
+
+    $(document).ready(function () {
+    $('button').hover(function(){
+        $('#candle').css('color','pink');
+    }, function() {
+        $('#candle').css('color','white');
+});
+});
+
+
+	</script>
+  </body>
+</html>
